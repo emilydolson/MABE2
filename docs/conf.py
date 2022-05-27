@@ -13,11 +13,13 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+from sphinx.builders.html import StandaloneHTMLBuilder
+import subprocess, os
+subprocess.call('doxygen Doxyfile', shell=True)
 
 # -- Project information -----------------------------------------------------
 
-project = 'MABE2'
+project = "MABE2"
 copyright = '2021, Charles Ofria, Clifford Bohm, Austin Ferguson, Acacia Ackles'
 author = 'Charles Ofria, Clifford Bohm, Austin Ferguson, Acacia Ackles'
 
@@ -29,7 +31,14 @@ author = 'Charles Ofria, Clifford Bohm, Austin Ferguson, Acacia Ackles'
 # ones.
 extensions = [
         'myst_parser', 
+        'sphinx.ext.autosectionlabel',
+        'breathe'
         ]
+
+breathe_projects = {
+	"MABE2": "./_build/xml/"
+}
+breathe_default_project = "MABE2"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -55,3 +64,7 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for Autosection labeling ---------------------------------------
 
 autosectionlabel_prefix_document = True
+html_static_path = ['_static']
+
+
+breathe_default_members = ('members', 'undoc-members')

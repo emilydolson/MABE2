@@ -159,7 +159,9 @@ namespace mabe {
     emp::vector<locus_t> data;                        // Actual data in the genome.
     double mut_p = 0.0;                               // Mutation probability (LOTS TO DO HERE!)
     size_t min_size = 0;
+    #ifndef DOXYGEN_SHOULD_SKIP_THIS
     size_t max_size = std::static_cast<size_t>(-1);
+    #endif
 
     double alphabet_size = 4.0;
 

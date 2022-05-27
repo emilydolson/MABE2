@@ -83,7 +83,9 @@ namespace mabe {
   using emplode::EmplodeType;
 
   class ModuleBase : public EmplodeType {
+    #ifndef DOXYGEN_SHOULD_SKIP_THIS
     friend MABE;
+    #endif
   protected:
     std::string name;          ///< Unique name for this module.
     std::string desc;          ///< Description for this module.
@@ -283,7 +285,9 @@ namespace mabe {
   struct ModuleInfo {
     std::string name;
     std::string desc;
+    #ifndef DOXYGEN_SHOULD_SKIP_THIS
     std::function<emp::Ptr<EmplodeType>(MABE &, const std::string &)> obj_init_fun;
+    #endif
     std::function<void(emplode::TypeInfo &)> type_init_fun;
     emp::TypeID type_id;
     bool operator<(const ModuleInfo & in) const { return name < in.name; }

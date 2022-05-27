@@ -36,12 +36,14 @@ namespace mabe {
 
   class Collection;
 
-  // A curtiously recursive template to create a base class for all collection iterators.
+  // A curiously recursive template to create a base class for all collection iterators.
   template <typename DERIVED_T, typename ORG_T, typename COLLECTION_T=Collection>
   class CollectionIterator_Interface
     : public OrgIterator_Interface<DERIVED_T, ORG_T, emp::match_const_t<Population,COLLECTION_T>>
   {
+    #ifndef DOXYGEN_SHOULD_SKIP_THIS
     friend Collection;
+    #endif
   protected:
     emp::Ptr<COLLECTION_T> collection_ptr = nullptr;
 
