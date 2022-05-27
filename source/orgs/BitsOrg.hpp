@@ -47,6 +47,10 @@ namespace mabe {
     /// Use "to_string" to convert.
     std::string ToString() const override { return emp::to_string(bits); }
 
+    void GenomeFromString(const std::string & new_genome) override {
+      bits = emp::BitVector(new_genome);
+    }
+
     size_t Mutate(emp::Random & random) override {
       const size_t num_muts = SharedData().mut_dist.PickRandom(random);
 

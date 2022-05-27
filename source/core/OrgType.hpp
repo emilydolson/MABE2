@@ -106,6 +106,10 @@ namespace mabe {
       return os;
     }
 
+    virtual void GenomeFromString(const std::string & new_genome) {
+      emp_assert(false, "FromString() must be overridden before it can be called.");
+    }
+
     /// Completely randomize a new organism (typically for initialization)
     virtual void Randomize(emp::Random & /*random*/) {
       emp_assert(false, "Randomize() must be overridden before it can be called.");
